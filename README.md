@@ -1,83 +1,36 @@
-Iris Species Prediction App 🌸
-
-This repository contains a simple web application that predicts the species of an Iris flower based on its sepal and petal measurements. The application uses a Gaussian Naive Bayes classifier trained on the famous Iris dataset.
-
-Introduction
-
-This project demonstrates a basic machine learning web application built with Flask. Users can input measurements of an Iris flower, and the application will predict whether it's a setosa, versicolor, or virginica species.
+Image Classification App
+This project is a Flask-based web application for image classification. It uses a pre-trained MobileNetV2 model to extract features from an uploaded image and then classifies the image using a Support Vector Classifier (SVC) trained on a custom dataset.
 
 Features
+Image Upload: A simple web form to upload an image file.
 
-Simple User Interface:
+Transfer Learning: Uses the pre-trained MobileNetV2 model as a feature extractor to get powerful, high-level features from images.
 
-A straightforward web form to input flower measurements.
+Dimensionality Reduction: Applies Principal Component Analysis (PCA) to reduce the dimensionality of the extracted features, improving the efficiency and performance of the classifier.
 
-Machine Learning Model: 
+Image Classification: Employs a Support Vector Classifier (SVC) to predict the class of the input image.
 
-Employs a Gaussian Naive Bayes model for classification.
+Web Interface: Displays the classification result and, if available, the probability distribution across all classes.
 
-Real-time Prediction: 
+Project Structure
+app.py: The main Flask application file. It handles image uploads, processes the images using the loaded models, makes a prediction, and renders the results.
 
-Provides instant predictions based on user input.
+train.py: A script to train the classification pipeline. It loads images from a specified directory (data/train), extracts features using MobileNetV2, applies PCA, trains an SVC, and saves the trained models (pca.pkl, clf.pkl, le_labels.pkl).
 
-Files in this Repository
+requirements.txt: Lists all the necessary Python packages, including Flask, tensorflow, scikit-learn, and Pillow.
 
-app.py: 
+models/: This directory stores the trained models and label encoders.
 
-The main Flask application file. It loads the dataset, trains the Naive Bayes model, and handles web requests for the home page and prediction.
+pca.pkl: The trained PCA model.
 
+clf.pkl: The trained SVC classifier.
 
-data.csv: 
+le_labels.pkl: The label encoder for mapping class names to numerical indices.
 
-The dataset containing Iris flower measurements (sepal length, sepal width, petal length, petal width) and their corresponding species (target). 
+uploads/: A temporary directory for storing uploaded images.
 
+data/train/: The directory where your training images are expected to be, organized into subdirectories by class name.
 
-requirements.txt:
+<img width="743" height="442" alt="Screenshot (77)" src="https://github.com/user-attachments/assets/35b554f3-fccf-4320-b477-58bcd6eedd2a" />
+<img width="730" height="449" alt="Screenshot (79)" src="https://github.com/user-attachments/assets/818f9c8a-d956-42f3-b700-a61e2891cf52" />
 
-Lists the Python dependencies required to run the application. 
-
-templates/: 
-
-(Implied, but not provided in the prompt - you'll need index.html and result.html in this directory)
-
-index.html: 
-
-The HTML template for the home page where users input features.
-
-result.html: 
-
-The HTML template to display the prediction result
-
-Dataset
-The data.csv file contains a small sample of the Iris dataset. It includes four features (sepal length, sepal width, petal length, and petal width) and the corresponding target variable, which is the Iris species. 
-
-Dependencies
-
-The application relies on the following Python libraries, as listed in 
-
-requirements.txt: 
-
-Flask:
-
-A micro web framework for Python.
-
-pandas: 
-
-Used for data manipulation and analysis, especially for reading data.csv.
-
-scikit-learn: 
-
-A machine learning library used for the Gaussian Naive Bayes classifier.
-
-Future Enhancements
-Error Handling Improvements: More robust error handling for invalid user inputs.
-
-User Interface Enhancements: Improve the look and feel of the web pages using CSS.
-
-Model Persistence: Save and load the trained model instead of retraining on every application start.
-
-More Features: Allow users to upload their own datasets for prediction.
-
-<img width="1366" height="768" alt="Screenshot (59)" src="https://github.com/user-attachments/assets/6517f1e0-cdd9-4702-a6a6-20ba9345b8d2" />
-
-<img width="1366" height="768" alt="Screenshot (60)" src="https://github.com/user-attachments/assets/36524ed4-8646-4083-84af-2c3574a5eb3b" />
